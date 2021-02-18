@@ -109,7 +109,9 @@ io.sockets.on("connection", (socket) => {
 
   // send a message to the other client in the game with a chat message
   socket.on("message", msg => {
-    Game.emit(socket, "message", msg, false)
+    if (Game) {
+      Game.emit(socket, "message", msg, false)
+    }
   })
 
   socket.on("disconnect", () => {
