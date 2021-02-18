@@ -84,6 +84,10 @@ function setup() {
   })
 }
 
+function draw() {
+  $(".id").html("Game ID: " + gameId)
+}
+
 // get the i and j position of a tile
 function getIndex(tile) {
   let i = Number($(tile).css("grid-column")[0]) - 1
@@ -218,9 +222,6 @@ $(".create-button").click(function () {
     myTurn = "x"
     myname = name
     $(".myturn").html(name + ", You Are X")
-    setTimeout(() => {
-      $(".id").html("Game ID: " + gameId)
-    }, 300);
   }
 })
 
