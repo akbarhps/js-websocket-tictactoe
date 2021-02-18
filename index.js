@@ -20,7 +20,7 @@ const capitalize = (s) => {
 
 class game {
   constructor() {
-    this.id = randomString();
+    this.id = randomString(15);
     this.players = []
     this.sockets = []
     this.names = {}
