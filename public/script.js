@@ -1,7 +1,7 @@
 let tiles;
 let gameTiles = []
 let gameReady = false
-let socket
+let socket = io.connect(window.location.origin)
 let turn = "x"
 let myTurn
 let myname
@@ -36,12 +36,6 @@ function setup() {
 
   // shorthand for all items with 'cell' class
   tiles = $(".cell")
-
-  // connect to socket
-  socket = io.connect(window.location.origin)
-  if (!socket) {
-    socket = io.connect(window.location.origin + ":3000")
-  }
 
   // add a message received from the server to the chat area
   socket.on("message", msg => {
