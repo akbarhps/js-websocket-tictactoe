@@ -102,7 +102,9 @@ io.sockets.on("connection", (socket) => {
 
   // send a message to clients in the game to reset
   socket.on("reset", () => {
-    Game.emit(socket, "reset")
+    if (Game) {
+      Game.emit(socket, "reset")
+    }
   })
 
   // send a message to the other client in the game with a chat message
